@@ -108,7 +108,9 @@ def unload_model(model_id):
 
 @app.route('/translate', methods=['POST'])
 def translate():
-    inputs = request.get_json(force=True)
+    # inputs = {"batch":[{"src":"How are you?","id": 100},{"src":"The country is failing!","id": 100}]}["batch"]
+    inputs = request.get_json()
+    inputs = inputs['batch']
     if debug:
         logger.info(inputs)
     out = {}
