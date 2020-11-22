@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 
 
-from flask import Flask, jsonify, request
-from onmt.translate import TranslationServer, ServerModelError
 import logging
 from logging.handlers import RotatingFileHandler
+
 import configargparse
+from flask import Flask, jsonify, request
+from onmt.translate import TranslationServer, ServerModelError
 
 STATUS_OK = "ok"
 STATUS_ERROR = "error"

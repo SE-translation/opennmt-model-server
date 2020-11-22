@@ -1,6 +1,7 @@
-import os
 import json
+
 from .get_conf import get_conf
+
 
 def get_valid_model_ids(conf_file=None):
     """Extract ids from conf.json if conf_file = None the default location available_models/conf.json will be tried"""
