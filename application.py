@@ -7,4 +7,4 @@ print("started model server")
 
 if __name__ == '__main__':
     print("started model server")
-    app.run(port=1600)
+    app.run()
