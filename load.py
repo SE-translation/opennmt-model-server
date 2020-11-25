@@ -4,29 +4,13 @@
 import logging
 from logging.handlers import RotatingFileHandler
 
-import configargparse
+
 from flask import Flask, jsonify, request
 from onmt.translate import TranslationServer, ServerModelError
 
 STATUS_OK = "ok"
 STATUS_ERROR = "error"
 
-
-def _get_parser():
-    parser = configargparse.ArgumentParser(
-        config_file_parser_class=configargparse.YAMLConfigFileParser,
-        description="OpenNMT-py REST Server")
-    parser.add_argument("--ip", type=str, default="0.0.0.0")
-    parser.add_argument("--port", type=int, default="5000")
-    parser.add_argument("--url_root", type=str, default="/translator")
-    parser.add_argument("--debug", "-d", action="store_true")
-    parser.add_argument("--config", "-c", type=str,
-                        default="./available_models/conf.json")
-    return parser
-
-
-parser = _get_parser()
-parsed_args = parser.parse_args()
 
 
 def prefix_route(route_function, prefix='/translator', mask='{0}{1}'):
@@ -51,7 +35,7 @@ if debug:
 app = Flask(__name__)
 
 if debug:
-    app.debug = True
+    app.debug = False
 
 translation_server = TranslationServer()
 
