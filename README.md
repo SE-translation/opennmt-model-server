@@ -1,2 +1,2 @@
 # opennmt-model-server
-The server where translation happens
+The server where magic translation happens
