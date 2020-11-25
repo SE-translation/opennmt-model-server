@@ -38,7 +38,7 @@ if debug:
     app.debug = False
 
 translation_server = TranslationServer()
-
+translation_server.start("available_models/conf.json")
 
 @app.route('/models', methods=['GET'])
 def get_models():
